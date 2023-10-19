@@ -1,12 +1,27 @@
-import { StatusBar } from 'expo-status-bar';
+import React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 import { StyleSheet, Text, View } from 'react-native';
+import Accueil from './screen/Accueil';
+import Single from './screen/Single';
+import Connexion from './screen/Connexion';
+import MotDePasseOublie from './screen/MotDePasseOublie';
+import EspaceGestion from './screen/EspaceGestion';
+import GestionOeuvres from './screen/GestionOeuvres';
+const Stack = createStackNavigator();
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="test">
+      <Stack.Screen name="Connexion" component={Connexion} />
+      <Stack.Screen name="Single" component={Single} />
+        <Stack.Screen name="Accueil" component={Accueil} />
+        <Stack.Screen name="MotDePasseOublie" component={MotDePasseOublie} />
+        <Stack.Screen name="EspaceGestion" component={EspaceGestion} />
+        <Stack.Screen name="GestionOeuvres" component={GestionOeuvres} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 
